@@ -1,0 +1,70 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Home" %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+<span class="govuk-caption-l">Step 3</span>
+<fieldset class="govuk-fieldset">
+  
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-7">
+    Summarise the meeting
+  </legend>
+  
+<div class="govuk-form-group govuk-!-margin-bottom-0">
+  <label class="govuk-label govuk-label--m" for="template">
+    1. Choose a template
+  </label>
+  <div id="agenda-hint" class="govuk-hint">
+    This will be used to structure the meeting summary. You'll be able to create additional summaries using other templates later.
+  </div>
+  <select class="govuk-select" id="template" name="sort">
+    <option value="general" selected="">General summary (default)</option>
+    <option value="cabinet">Cabinet meeting</option>
+    <option value="care">Care assessment</option>
+    <option value="delivery">Delivery meeting</option>
+    <option value="exec">Executive summary</option>
+    <option value="planning">Planning comittee meeting</option>
+  </select>
+</div>
+
+<div class="govuk-form-group">
+  <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes" data-govuk-checkboxes-init="">
+    <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input" id="default" name="default" type="checkbox" value="default" checked="">
+      <label class="govuk-label govuk-checkboxes__label" for="default">
+        Make this the default
+      </label>   
+    </div>  
+  </div>
+</div>
+</fieldset>
+
+
+
+{{ govukTextarea({
+  name: "agenda",
+  id: "agenda",
+  label: {
+    text: "2. Add an agenda (optional)",
+    classes: "govuk-label--m"
+  },
+  hint: {
+    text: "Add discussion points to include in the meeting summary."
+  }
+}) }}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Summarise the meeting",
+  href: "/done"
+}) }}
+
+  </div>
+</div>
+
+{% endblock %}

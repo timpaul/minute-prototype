@@ -1,0 +1,56 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Home" %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+    <form class="form" action="/meeting-type" method="post">
+
+{{ govukRadios({
+  name: "meetingType",
+  fieldset: {
+    legend: {
+      text: "New meeting",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "How do you want to record the meeting?"
+  },
+  items: [
+    {
+      value: "in-person",
+      text: "Using this device's microphone",
+      checked: "true"
+    },
+    {
+      value: "remote",
+      text: "Using the audio from a browser tab"
+    },
+    {
+      divider: "or"
+    },
+    {
+      value: "file",
+      text: "By uploading a file of a recorded meeting"
+    }
+  ]
+}) }}
+
+{{ govukButton({
+  text: "Next"
+}) }}
+</form>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,117 @@
+{% extends "layouts/meetings.html" %}
+
+{% set pageName="Home" %}
+
+{% block content %}
+
+<style>
+  .tooltip{
+    border: 1px solid #8fb8dc;
+    padding: 7px 10px;
+    background: #f5f8fb;
+    top: -220px
+  }
+</style>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters-from-desktop">
+
+    <span class="govuk-caption-l">Meeting</span>
+    <h2 class="govuk-heading-l">Quarterly planning meeting</h2>
+<p class="govuk-body-s" style="
+    margin-top: -20px;
+    font-style: italic;
+    color: #494949;
+">Transcribed 06 March 2027, 15:32</p>
+
+{% set summaryHtml %}
+
+    <ul class="govuk-list summary-nav">
+      <li class="list govuk-body-s template-selector">
+          <label class="govuk-label" for="sort" style="display: none;">Template</label>
+          <select class="govuk-select" id="sort" name="sort">
+            <option value="general" selected="">General summary (default)</option>
+            <option value="--">======================</option>
+            <option value="cabinet">Cabinet meeting</option>
+            <option value="care">Care assessment</option>
+            <option value="delivery">Delivery meeting</option>
+            <option value="exec">Executive summary</option>
+            <option value="general">General summary</option>
+            <option value="planning">Planning comittee meeting</option>
+          </select>
+      </li>
+      <li class="list govuk-body-s">    
+        <button class="govuk-button govuk-button--inverse govuk-link nav-button" command="show-modal" commandfor="modal-refresh">Refresh</button>
+        <dialog id="modal-refresh">
+          <h3>Are you sure?</h3>
+          <p>Refreshing the summary from the transcript <br> will mean you will lose any manual edits. <br>Refresh anyway?</p>
+          <button commandfor="modal-refresh" command="close" class="govuk-button">Yes, refresh</button> 
+          <a class="cancel" href="#">No, cancel</a>
+        </dialog>
+      </li> 
+      <li class="list govuk-body-s">
+        
+      <li class="list govuk-body-s">
+        <button class="govuk-button govuk-button--inverse govuk-link nav-button" command="show-modal" commandfor="modal-copy">Copy</button>
+        <dialog id="modal-copy">
+          <h3>Summary copied</h3>
+          <p>Summary text copied to clipboard in markdown format.</p>
+          <button commandfor="modal-copy" command="close" class="govuk-button">Close</button>
+        </dialog>
+      </li>  
+
+      </li> 
+      <li class="list govuk-body-s">
+        <button class="govuk-button govuk-button--inverse govuk-link nav-button" command="show-modal" commandfor="modal-export">Export</button>
+        <dialog id="modal-export">
+          <h3>Export summary</h3>
+          <p>Download summary as a Word document?</p>
+          <button commandfor="modal-export" command="close" class="govuk-button">Yes, download</button> 
+          <a class="cancel" href="#">No, cancel</a>
+        </dialog>
+      </li> 
+      <li class="list govuk-body-s">
+        <button class="govuk-button govuk-button--inverse govuk-link nav-button" onclick="location.href='meeting-edit#summary';">Edit</button>
+      </li>   
+    </ul>
+
+    
+    
+
+    <h3 class="govuk-heading-m">Quarterly planning meeting</h3>
+    <p class="govuk-body-s" style="-top: -10px; font-style: italic; color: #494949;">Created 06 March 2027, 15:32</p>
+    <p class-"govuk-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p class-"govuk-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p class-"govuk-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p class-"govuk-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+{% endset -%}
+
+{% set transcriptHtml %}
+{% include "include-transcript.njk" %}
+{% endset -%}
+
+{{ govukTabs({
+  items: [
+    {
+      label: "Transcript",
+      id: "transcript",
+      panel: {
+        html: transcriptHtml
+      }
+    },
+    {
+      label: "Summaries",
+      id: "summary",
+      panel: {
+        html: summaryHtml
+      }
+    }
+  ]
+}) }}
+
+  </div>
+
+</div>
+
+{% endblock %}

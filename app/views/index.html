@@ -4,17 +4,23 @@
 
 {% block content %}
 
+<style>
+ 
+</style>
+
+
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
 
-    {% include "govuk-prototype-kit/includes/homepage-top.njk" %}
 
-    <h1 class="govuk-heading-xl">
-      {{ serviceName }}
-    </h1>
 
-    {% include "govuk-prototype-kit/includes/homepage-bottom.njk" %}
-  </div>
+{{ govukButton({
+  text: "Transcribe a meeting",
+  href: "record-source",
+  isStartButton: true
+}) }}
+   
+</div>
 </div>
 
 {% endblock %}

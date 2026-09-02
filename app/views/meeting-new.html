@@ -1,0 +1,91 @@
+{% extends "layouts/meetings.html" %}
+
+{% set pageName="Home" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters-from-desktop">
+
+    <span class="govuk-caption-l">Meeting</span>
+    <h2 class="govuk-heading-l">Quarterly planning meeting</h2>
+<p class="govuk-body-s" style="
+    margin-top: -20px;
+    font-style: italic;
+    color: #494949;
+">Transcribed 06 March 2027, 15:32</p>
+
+{% set summaryHtml %}
+
+    <ul class="govuk-list" style="display: flex;
+    gap: 0 20px;
+    padding: 15px 21px 15px 15px;
+    margin: -25px -20px 20px -21px;
+    justify-content: flex-end;
+    border-bottom: 1px solid #cecece;">
+      <li class="list govuk-body-s" style="flex-grow: 4; margin: -7px 0 -7px;">
+          <label class="govuk-label" for="sort" style="display: none;">Template</label>
+          <select class="govuk-select" id="sort" name="sort" style="margin-bottom: 7px; font-size: 16px; height: 2rem; padding: 0 5px; border: 1px solid #0b0b0d;">
+            <option value="general" selected="">General summary (default)</option>
+            <option value="--">======================</option>
+            <option value="cabinet">Cabinet meeting</option>
+            <option value="care">Care assessment</option>
+            <option value="delivery">Delivery meeting</option>
+            <option value="exec">Executive summary</option>
+            <option value="general">General summary</option>
+            <option value="planning">Planning comittee meeting</option>
+          </select>
+      </li>
+    </ul>
+
+     <h2 class="govuk-heading-m">Generate general summary</h2>   
+
+{{ govukTextarea({
+  name: "agenda",
+  id: "agenda",
+  label: {
+    text: "Add meeting agenda (optional)",
+    classes: "govuk-label--s"
+  },
+  hint: {
+    text: "Add discussion points to include in the meeting summary."
+  }
+}) }}
+
+{{ govukButton({
+  text: "Generate summary",
+  href: "/meeting#summary",
+  classes: "govuk-!-margin-bottom-0"
+}) }}
+
+
+{% endset -%}
+
+{% set transcriptHtml %}
+{% include "include-transcript.njk" %}
+{% endset -%}
+
+{{ govukTabs({
+  items: [
+    {
+      label: "Transcript",
+      id: "transcript",
+      panel: {
+        html: transcriptHtml
+      }
+    },
+    {
+      label: "Summaries",
+      id: "summary",
+      panel: {
+        html: summaryHtml
+      }
+    }
+  ]
+}) }}
+
+  </div>
+
+</div>
+
+{% endblock %}

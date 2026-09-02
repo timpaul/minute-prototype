@@ -1,0 +1,53 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Home" %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+    <form class="form" action="/microphone" method="post">
+
+{{ govukRadios({
+  name: "microphone",
+  fieldset: {
+    legend: {
+      text: "Choose a microphone",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "Choose the audio device you want to use"
+  },
+  items: [
+    {
+      value: "mac",
+      text: "Macbook Pro Microphone (Built in)",
+      checked: "true"
+    },
+    {
+      value: "teams",
+      text: "Microsoft Teams audio device (Virtual)"
+    },
+    {
+      value: "default",
+      text: "Default - Macbook Pro Microphone (Built in)"
+    }
+  ]
+}) }}
+
+{{ govukButton({
+  text: "Next"
+}) }}
+</form>
+
+  </div>
+</div>
+
+{% endblock %}

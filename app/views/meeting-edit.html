@@ -1,0 +1,109 @@
+{% extends "layouts/meetings.html" %}
+
+{% set pageName="Home" %}
+
+{% block content %}
+
+<style>
+  .tooltip{
+    border: 1px solid #8fb8dc;
+    padding: 7px 10px;
+    background: #f5f8fb;
+    top: -220px
+  }
+</style>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters-from-desktop">
+
+    <span class="govuk-caption-l">Meeting</span>
+    <h2 class="govuk-heading-l">Quarterly planning meeting</h2>
+<p class="govuk-body-s" style="
+    margin-top: -20px;
+    font-style: italic;
+    color: #494949;
+">Transcribed 06 March 2027, 15:32</p>
+
+{% set summaryHtml %}
+
+
+    <ul class="govuk-list summary-nav">
+      <li class="list govuk-body-s template-selector">
+        <strong style="padding-top: 7px; display: block;">Editing general summary</strong>
+      </li>
+
+      <li class="list govuk-body-s">
+        <button class="govuk-button govuk-button--inverse govuk-link nav-button" command="show-modal">Version history</button>
+      </li> 
+      <li class="list govuk-body-s">
+        <button class="govuk-button govuk-button--inverse govuk-link nav-button" command="show-modal">AI edit</button>
+      </li>  
+      <li class="list govuk-body-s">
+        <button class="govuk-button govuk-button--inverse govuk-link nav-button" onclick="location.href='meeting#summary';">Discard</button>
+      </li>  
+      <li class="list govuk-body-s">
+        <button class="govuk-button nav-button" command="show-modal" commandfor="modal-export" style="margin-left: 10px;">Save</button>
+      </li>  
+    </ul>
+
+
+ <div style="background: #f5f8fb;
+    margin: -20px -20px -30px;
+    padding: 20px;"">
+
+    <p style="font-size: 16px; margin: 5px -10px;">Title</p>
+    <h3 class="govuk-heading-m" style="border: 1px solid #cecece;
+    background: white;
+    padding: 5px;
+    margin: 0 -10px 10px;
+    font-size: 19px;
+    font-weight: 300;">
+      Quarterly planning meeting
+
+
+    </h3>
+    <p style="font-size: 16px; margin: 20px -10px 5px;">Summary</p>
+<div style="
+    border: 1px solid #cecece;
+    padding: 10px;
+    margin: 0 -10px -10px;
+    background: white;
+">
+        <div style="margin: -10px -10px 10px -10px;border-bottom: 1px solid #cecece; height: 43px;"><img src="/public/edit-bar.png" style="width: 420px"></div>
+        <p class-"govuk-body"="">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p class-"govuk-body"="">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p class-"govuk-body"="">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p class-"govuk-body"="">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+</div>   
+
+{% endset -%}
+
+{% set transcriptHtml %}
+{% include "include-transcript.njk" %}
+{% endset -%}
+
+{{ govukTabs({
+  items: [
+    {
+      label: "Transcript",
+      id: "transcript",
+      panel: {
+        html: transcriptHtml
+      }
+    },
+    {
+      label: "Summaries",
+      id: "summary",
+      panel: {
+        html: summaryHtml
+      }
+    }
+  ]
+}) }}
+
+  </div>
+
+</div>
+
+{% endblock %}

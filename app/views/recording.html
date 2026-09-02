@@ -1,0 +1,47 @@
+{% extends "layouts/record.html" %}
+
+{% set pageName="Home" %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+
+<span class="govuk-caption-l">Transcribe a meeting</span>
+<h2 class="govuk-heading-l">2. Recording meeting...</h2>
+
+<p class="govuk-body">Time: 00:00</p>
+
+<img src="/public/recording.png" style="
+    border: 1px solid #8fb8dc;
+    height: 150px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;" />
+
+
+  <p class="govuk-body govuk-!-margin-top-2">
+    Once you stop a recording you will not be able to start it again.
+  </p>
+
+
+<div class="govuk-button-group govuk-!-margin-top-2">
+
+  {{ govukButton({
+    text: "Stop recording and save",
+    href: "/meeting-new"
+  }) }}
+
+  {{ govukButton({
+    text: "Pause recording",
+    classes: "govuk-button--secondary"
+  }) }}
+
+  <a class="govuk-link" style="color:#ca3535; float:right;" href="#">Discard recording</a>
+</div>
+
+  </div>
+</div>
+
+{% endblock %}

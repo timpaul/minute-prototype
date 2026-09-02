@@ -1,0 +1,140 @@
+{% extends "layouts/record.html" %}
+
+{% set pageName="Home" %}
+
+{% block content %}
+
+<style>
+  .audio-test{
+      position: absolute;
+      width: 310px;
+      margin-left: 160px;
+      border: 1px solid #8fb8dc;
+  }
+</style>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+
+    <span class="govuk-caption-l">Transcribe a meeting</span>
+<h2 class="govuk-heading-l">1. Choose an audio source</h2>
+
+{% set personHtml %}
+<h2 class="govuk-heading-m">Record audio from a microphone on this device</h2>
+
+{{ govukSelect({
+  id: "mic",
+  name: "mic",
+  label: {
+    text: "Select microphone"
+  },
+  items: [
+    {
+      value: "1",
+      text: "MacBook Pro Microphone (Built in)"
+    }
+  ]
+}) }}
+
+  <p class="govuk-body">
+    Ensure that all participants are aware that they will be recorded.
+  </p>
+
+  <img src="/public/recording-small.png" class="audio-test"/>
+
+
+{{ govukButton({
+  text: "Start recording",
+  href: "/recording"
+}) }}
+
+
+{% endset -%}
+
+{% set virtualHtml %}
+<h2 class="govuk-heading-m">Record audio from a browser tab or window</h2>
+
+{{ govukSelect({
+  id: "virtual",
+  name: "virtual",
+  label: {
+    text: "Select microphone"
+  },
+  items: [
+    {
+      value: "1",
+      text: "MacBook Pro Microphone (Built in)"
+    }
+  ]
+}) }}
+
+  <p class="govuk-body">
+    Ensure that all participants are aware that they will be recorded.
+  </p>
+
+<img src="/public/recording-small.png" class="audio-test" style="margin-left: 230px"/>
+
+{{ govukButton({
+  text: "Choose a tab or window",
+  href: "/recording"
+}) }}
+
+{% endset -%}
+
+{% set fileHtml %}
+<h2 class="govuk-heading-m">Use a previously recorded meeting</h2>
+
+{{ govukFileUpload({
+  id: "file-upload-1",
+  name: "fileUpload1",
+  label: {
+    text: "Select an audio or video file (maximum size 5GB)"
+  },
+  javascript: true
+}) }}
+
+{{ govukButton({
+  text: "Upload file",
+  href: "/recording"
+}) }}
+
+{% endset -%}
+
+{{ govukTabs({
+  items: [
+    {
+      label: "In person meeting",
+      id: "person",
+      panel: {
+        html: personHtml
+      }
+    },
+    {
+      label: "Virtual meeting",
+      id: "virtual",
+      panel: {
+        html: virtualHtml
+      }
+    },
+    {
+      label: "File upload",
+      id: "file",
+      panel: {
+        html: fileHtml
+      }
+    }
+  ]
+}) }}
+
+
+{% call govukDetails({
+  summaryText: "Get help with Minute"
+}) %}
+  Contextual help goes here.
+{% endcall %}
+
+  </div>
+</div>
+
+{% endblock %}
