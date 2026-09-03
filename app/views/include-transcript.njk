@@ -3,55 +3,84 @@
       <li class="list govuk-body-s audio-control">
         <audio controls="" src=""></audio>
       </li>      
-      <li class="list govuk-body-s"><a href="#">Jump</a></li>  
-      <li class="list govuk-body-s"><a href="#">Edit</a></li>  
-      <li class="list govuk-body-s"><a href="#">Copy</a></li> 
-      <li class="list govuk-body-s"><a href="#">Export</a></li> 
+
+      <li class="list govuk-body-s">
+        <button interestfor="jump-tip" class="govuk-button govuk-button--inverse govuk-link nav-button">
+          Jump
+          <div class="tooltip" id="jump-tip" popover="hint">
+            Jump to this part of the transcript
+          </div>
+        </button>
+      </li>  
+
+      <li class="list govuk-body-s">
+        <button class="govuk-button govuk-button--inverse govuk-link nav-button" command="show-modal" commandfor="modal-copy-transcript">
+          Copy
+        </button>
+        <dialog id="modal-copy-transcript">
+          <h3>Transcript copied</h3>
+          <p>Transcript text copied to clipboard in markdown format.</p>
+          <button commandfor="modal-copy-transcript" command="close" class="govuk-button">Close</button>
+        </dialog>
+      </li>  
+
+      <li class="list govuk-body-s">
+        <button class="govuk-button govuk-button--inverse govuk-link nav-button" command="show-modal" commandfor="modal-export-transcript">Export</button>
+        <dialog id="modal-export-transcript">
+          <h3>Export transcript</h3>
+          <p>Download audio file?</p>
+          <button commandfor="modal-export-transcript" command="close" class="govuk-button">Yes, download</button> 
+          <a class="cancel" href="#">No, cancel</a>
+        </dialog>
+      </li> 
+
+      <li class="list govuk-body-s">
+        <button class="govuk-button govuk-button--inverse govuk-link nav-button">Edit</button>
+      </li> 
     </ul>
 
     <h2 class="govuk-heading-m">Full transcript</h2>
 
+
     <p class-"govuk-body" class="play-button">
-      <button type="submit" class="govuk-button govuk-button--secondary">
-      ▶
-    </button>      Jonny
+      <button type="submit">▶</button>      
+      Jonny
     </p>
 
     <p class-"govuk-body" style="margin-left: 40px;">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
 
     <p class-"govuk-body" class="play-button">
-      <button type="submit" class="govuk-button govuk-button--secondary">
-      ▶
-    </button>      Franky
+      <button type="submit">▶</button>      
+      Franky
     </p>
 
     <p class-"govuk-body" style="margin-left: 40px;">
             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
     <p class-"govuk-body" class="play-button">
-      <button type="submit" class="govuk-button govuk-button--secondary">
-      ▶
-    </button>      Jonny
+      <button type="submit">▶</button>      
+      Jonny
     </p>
 
     <p class-"govuk-body" style="margin-left: 40px;">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
 
     <p class-"govuk-body" class="play-button">
-      <button type="submit" class="govuk-button govuk-button--secondary">
-      ▶
-    </button>      Franky
+      <button type="submit">▶</button>      
+      Franky
     </p>
+
     <p class-"govuk-body" style="margin-left: 40px;">      
       Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
     <p class-"govuk-body" style="margin-left: 40px;">      
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+
     <p class-"govuk-body" class="play-button">
-      <button type="submit" class="govuk-button govuk-button--secondary">
-      ▶
-    </button>      Jonny
+      <button type="submit">▶</button>      
+      Jonny
     </p>
+
     <p class-"govuk-body" style="margin-left: 40px;">      
       Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>

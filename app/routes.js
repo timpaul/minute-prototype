@@ -8,6 +8,11 @@ const router = govukPrototypeKit.requests.setupRouter()
 
 // Add your routes here
 
+router.get('/', function(request, response) {
+	response.redirect("/record-source")
+})
+
+
 router.post('/meeting-type', function(request, response) {
 
 	var meetingType = request.session.data['meetingType']

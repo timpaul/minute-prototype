@@ -5,7 +5,7 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-  <div class="-govuk-grid-column-three-quarters-from-desktop">
+  <div class="govuk-grid-column-three-quarters-from-desktop">
 
     <span class="govuk-caption-l">Meeting</span>
     <h2 class="govuk-heading-l">Quarterly planning meeting</h2>
@@ -17,56 +17,6 @@
 
 {% set summaryHtml %}
 
-<div style="text-align: center;">
-    <br>
-    <p>You haven't generated any summaries yet.</p>
-    <button type="submit" class="govuk-button" command="show-modal" commandfor="modal-generate">
-      Generate a summary
-    </button>
-</div>
-
-<dialog id="modal-generate" style="margin: 10% auto;max-width: 600px;">
-
-
-  <label class="govuk-label govuk-label--s" for="template">
-    1. Choose a summary template
-  </label>
-  <div id="agenda-hint" class="govuk-hint">
-    This will be used to structure the meeting summary.
-  </div>
-  <select class="govuk-select govuk-!-margin-bottom-4" id="template" name="sort">
-    <option value="general" selected="">General summary (default)</option>
-    <option value="cabinet">Cabinet meeting</option>
-    <option value="care">Care assessment</option>
-    <option value="delivery">Delivery meeting</option>
-    <option value="exec">Executive summary</option>
-    <option value="planning">Planning comittee meeting</option>
-  </select>
-
-  {{ govukTextarea({
-    name: "agenda",
-    id: "agenda",
-    label: {
-      text: "2. Add an agenda (optional)",
-      classes: "govuk-label--s"
-    },
-    hint: {
-      text: "Add discussion points to include in the meeting summary."
-    }
-  }) }}
-
-  {% from "govuk/components/button/macro.njk" import govukButton %}
-
-  {{ govukButton({
-    text: "Generate summary",
-    href: "/meeting#summary",
-    classes:"govuk-!-margin-bottom-0"
-  }) }}
-  
-  <button commandfor="modal-generate" command="close" class="govuk-button govuk-button--inverse govuk-link nav-button" style="margin-top: 3px; margin-left: 10px;">Cancel</button>
-</dialog>
-
-<!--
     <ul class="govuk-list" style="display: flex;
     gap: 0 20px;
     padding: 15px 21px 15px 15px;
@@ -88,7 +38,7 @@
       </li>
     </ul>
 
-     <h2 class="govuk-heading-m">Generate general summary</h2>  
+     <h2 class="govuk-heading-m">Generate general summary</h2>   
 
 {{ govukTextarea({
   name: "agenda",
@@ -107,8 +57,6 @@
   href: "/meeting#summary",
   classes: "govuk-!-margin-bottom-0"
 }) }}
-
- -->
 
 
 {% endset -%}
