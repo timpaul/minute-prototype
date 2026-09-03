@@ -4,6 +4,20 @@
 
 {% block content %}
 
+<script>
+  window.addEventListener("load", function () {
+  if (window.location.hash) {
+    // Scroll back to the top immediately
+    window.scrollTo(0, 0);
+    
+    // Optional: Remove the anchor from the URL bar without reloading
+    setTimeout(function () {
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }, 1);
+  }
+});
+</script>
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-three-quarters-from-desktop">
 
@@ -40,7 +54,6 @@
           <a class="cancel" href="#">No, cancel</a>
         </dialog>
       </li> 
-      <li class="list govuk-body-s">
         
       <li class="list govuk-body-s">
         <button class="govuk-button govuk-button--inverse govuk-link nav-button" command="show-modal" commandfor="modal-copy">Copy</button>
