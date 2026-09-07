@@ -3,7 +3,37 @@
 // https://prototype-kit.service.gov.uk/docs/adding-css-javascript-and-images
 // 
 
-// Add extra styles here
+
+.app-full-width{
+    .govuk-width-container {
+    // Override the max-width restrictions
+    max-width: none;
+    
+    // Keep the consistent gutters (responsive side padding) aligned with the header/footer
+    padding-left: govuk-spacing(3);
+    padding-right: govuk-spacing(3);
+
+    @include govuk-media-query($from: tablet) {
+        padding-left: govuk-spacing(5);
+        padding-right: govuk-spacing(5);
+    }
+
+    @include govuk-media-query($from: desktop) {
+        padding-left: govuk-spacing(5);
+        padding-right: govuk-spacing(5);
+    }
+
+    // Ensure inner rows stretch to the absolute edges
+    .govuk-grid-row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    }
+    .govuk-main-wrapper{
+        //margin: 0 -15px;
+    }
+}
+
 
 .account-nav{
     margin-left: auto;
@@ -22,8 +52,31 @@
     top: 0;
 }
 
+.toolbar{
+    display: flex;
+    gap: 0 10px;
+    border: 1px solid #cecece;
+    padding: 10px 15px;
+    margin-bottom: 0;
+    background: #f4f8fb;
+    label{
+        font-size: 16px;
+    }
+
+    input,
+    select{
+        font-size: 16px;
+        height: 34px;
+        padding: 0px 5px;
+        border: 1px solid #0b0c0c;
+    }
+    position: sticky;
+    top: 0;
+}
+
 .govuk-list > li.audio-control{
-    flex-grow: 4; margin: -7px 0 -7px;
+    flex-grow: 4; 
+    margin: -7px 0 -7px;
     audio{
         width: 97%; height: 33px;
     }
@@ -52,10 +105,10 @@
     margin: -7px 0 -7px;
 
     select{
-        font-size: 16px; 
-        height: 2rem; 
-        padding: 0 5px; 
-        border: 1px solid #cecece;
+    font-size: 16px;
+    height: 34px;
+    padding: 0px 5px;
+    border: 1px solid #0b0c0c;
     }
 }
 
@@ -94,4 +147,32 @@ dialog h3{
     padding: 10px 15px;
     position: relative;
     border: 0 solid;
+}
+
+
+
+.table-list{
+    td:nth-last-child(-n+3){
+        text-align: right;
+        padding-top: 15px;
+    }
+    td:first-child{
+        padding: 5px 15px;
+    }
+    .govuk-table__cell:last-child {
+        padding-right: 15px
+    }
+    td{
+        vertical-align: middle;
+    }
+    button{
+        margin: 0px 0 5px 5px;
+        //position: inherit;
+    }
+}
+
+.checkbox{
+    border: 1px solid #0b0c0c; 
+    width: 20px;
+    height: 20px   
 }

@@ -23,10 +23,25 @@
       <li class="list govuk-body-s template-selector">
         <strong style="padding-top: 7px; display: block;">Editing general summary</strong>
       </li>
-
+<!--
       <li class="list govuk-body-s">
         <button class="govuk-button govuk-button--inverse govuk-link nav-button" command="show-modal">Version history</button>
       </li> 
+    -->
+      <li class="list govuk-body-s template-selector" style="text-align: right">
+          <label class="govuk-label" for="sort" style="display: none;">Version</label>
+          <select class="govuk-select" id="sort" name="sort">
+            <option value="general" selected="">Latest version</option>
+            <option value="--">======================</option>
+            <option value="cabinet">06/10/2026 16:43</option>
+            <option value="cabinet">06/10/2026 09:34</option>
+            <option value="cabinet">05/10/2026 10:24</option>
+            <option value="cabinet">05/10/2026 10:15</option>
+            <option value="cabinet">03/10/2026 13:07</option>
+            <option value="cabinet">03/10/2026 12:26</option>
+          </select>
+      </li>
+
       <li class="list govuk-body-s">
         <button class="govuk-button govuk-button--inverse govuk-link nav-button" command="show-modal">AI edit</button>
       </li>  

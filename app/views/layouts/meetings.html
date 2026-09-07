@@ -8,8 +8,9 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 {% from "govuk/components/header/macro.njk" import govukHeader %}
 {% from "govuk/components/generic-header/macro.njk" import govukGenericHeader %}
 
-{% block govukHeader %}
+{% set bodyClasses = "xapp-full-width" %}
 
+{% block govukHeader %}
 
 {{ govukHeader({
   homepageUrl: "/",
@@ -28,27 +29,27 @@ DWP Minute
 }) }}
 -->
 
-
 {% endblock %}
 
 {% set navigationEnd %}
   <li class="govuk-service-navigation__item account-nav">              
-    <a class="govuk-service-navigation__link" href="#"> 
-      Your account
+    <a class="govuk-service-navigation__link" href="/settings"> 
+      Settings
     </a>
   </li>
 {% endset %}
 
 {% block govukServiceNavigation %}
   {{ govukServiceNavigation({
+    classes: "app-width-container--full-width",
     navigation: [
       {
         href: "/record-source",
-        text: "Transcribe"
+        text: "Record"
       },
       {
         href: "/meetings",
-        text: "Meetings",
+        text: "Transcripts",
         active: true
       },
       {
@@ -63,4 +64,3 @@ DWP Minute
 
 
 {% endblock %}
-

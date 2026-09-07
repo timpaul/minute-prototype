@@ -1,0 +1,58 @@
+{% extends "layouts/settings.html" %}
+
+{% set pageName="Home" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters-from-desktop">
+
+    <h2 class="govuk-heading-l">Settings</h2>
+
+{{ govukRadios({
+  name: "whereDoYouLive",
+  fieldset: {
+    legend: {
+      text: "For how long do you want to store meeting data?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: "After this period the transcriptions, minutes and audio will be permanently deleted."
+  },
+  items: [
+    {
+      value: "1",
+      text: "1 day"
+    },
+    {
+      value: "7",
+      text: "7 days"
+    },
+    {
+      value: "30",
+      text: "30 days",
+      checked: true
+    },
+    {
+      value: "90",
+      text: "90 days"
+    },
+    {
+      value: "indefinitely",
+      text: "Indefinitely"
+    }
+  ]
+}) }}
+
+    <h2 class="govuk-heading-m">Account settings</h2>
+
+    {{ govukButton({
+      text: "Sign out"
+    }) }}
+
+  </div>
+</div>
+
+{% endblock %}

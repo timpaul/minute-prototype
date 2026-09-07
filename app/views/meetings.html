@@ -4,13 +4,138 @@
 
 {% block content %}
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-three-quarters-from-desktop">
+    <h2 class="govuk-heading-l">Transcripts</h2>
 
-    <h2 class="govuk-heading-l">Meetings</h2>
+    <p>Transcripts expire and are deleted after <a href="">30 days</a>.</p>
 
+    <ul class="govuk-list toolbar">
+      <li style="flex-grow: 4">
+          <label class="govuk-label" for="search">
+            Search transcripts
+          </label>
+          <input class="govuk-input" id="search" name="search" type="search">
+      </li>
+      <li>
+          <label class="govuk-label" for="filter">Show</label>
+          <select class="govuk-select" id="filter" name="filter">
+            <option value="general" selected="">All transcripts</option>
+            <option value="cabinet">Expiring soon</option>
+            <option value="care">Failed upload</option>
+            <option value="care">Incomplete</option>
+          </select>
 
-  </div>
-</div>
+        
+      </li>
+    </ul>
+
+  <table class="govuk-table table-list" style="border: 1px solid #cecece; margin-top: -1px;">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row" style="display: none;">
+      <th scope="col" class="govuk-table__header app-custom-class">Select</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Title</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Date</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Actions</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell" style="width: 10px"><div class="checkbox"></div></td>
+      <td scope="row" class="govuk-table__cell govuk-!-width-one-half govuk-body-s">Select all 34 transcripts</td>
+      <td scope="row" class="govuk-table__cell govuk-body-s"><strong>Recorded</strong></td>
+      <td scope="row" class="govuk-table__cell govuk-body-s"><strong>Expiring</strong></td>
+      <td scope="row" class="govuk-table__cell"></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell" style="width: 10px"><div class="checkbox"></div></td>
+      <td scope="row" class="govuk-table__cell"><a href="meeting" class="govuk-link">Quarterly planning meeting</a></td>
+      <td class="govuk-table__cell govuk-body-s">04 Sep, 14:28</td>
+      <td class="govuk-table__cell govuk-body-s">In 30 days</td>
+      <td class="govuk-table__cell">   
+            <button class="govuk-button govuk-button--inverse govuk-link nav-button">Rename</button>
+            <button class="govuk-button govuk-button--inverse govuk-link nav-button">Delete</button>
+      </td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell" style="width: 10px"><div class="checkbox"></div></td>
+      <td scope="row" class="govuk-table__cell"><a href="meeting" class="govuk-link">Quarterly planning meeting</a></td>
+      <td class="govuk-table__cell govuk-body-s">03 Sep, 14:28</td>
+      <td class="govuk-table__cell govuk-body-s">In 29 days</td>
+      <td class="govuk-table__cell">   
+            <button class="govuk-button govuk-button--inverse govuk-link nav-button">Rename</button>
+            <button class="govuk-button govuk-button--inverse govuk-link nav-button">Delete</button>
+      </td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell" style="width: 10px"><div class="checkbox"></div></td>
+      <td scope="row" class="govuk-table__cell"><a href="meeting" class="govuk-link">Quarterly planning meeting</a></td>
+      <td class="govuk-table__cell govuk-body-s">02 Sep, 14:28</td>
+      <td class="govuk-table__cell govuk-body-s">In 28 days</td>
+      <td class="govuk-table__cell">   
+            <button class="govuk-button govuk-button--inverse govuk-link nav-button">Rename</button>
+            <button class="govuk-button govuk-button--inverse govuk-link nav-button">Delete</button>
+      </td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell" style="width: 10px"><div class="checkbox"></div></td>
+      <td scope="row" class="govuk-table__cell"><a href="meeting" class="govuk-link">Quarterly planning meeting</a></td>
+      <td class="govuk-table__cell govuk-body-s">01 Sep, 14:28</td>
+      <td class="govuk-table__cell govuk-body-s">In 27 days</td>
+      <td class="govuk-table__cell">   
+            <button class="govuk-button govuk-button--inverse govuk-link nav-button">Rename</button>
+            <button class="govuk-button govuk-button--inverse govuk-link nav-button">Delete</button>
+      </td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell" style="width: 10px"><div class="checkbox"></div></td>
+      <td scope="row" class="govuk-table__cell"><a href="meeting" class="govuk-link">Quarterly planning meeting</a></td>
+      <td class="govuk-table__cell govuk-body-s">31 Aug, 14:28</td>
+      <td class="govuk-table__cell govuk-body-s" >In 26 days</td>
+      <td class="govuk-table__cell">   
+            <button class="govuk-button govuk-button--inverse govuk-link nav-button">Rename</button>
+            <button class="govuk-button govuk-button--inverse govuk-link nav-button">Delete</button>
+      </td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell" style="width: 10px"><div class="checkbox"></div></td>
+      <td scope="row" class="govuk-table__cell"><a href="meeting" class="govuk-link">Quarterly planning meeting</a></td>
+      <td class="govuk-table__cell govuk-body-s">28 Aug, 14:28</td>
+      <td class="govuk-table__cell govuk-body-s">In 23 days</td>
+      <td class="govuk-table__cell">   
+            <button class="govuk-button govuk-button--inverse govuk-link nav-button">Rename</button>
+            <button class="govuk-button govuk-button--inverse govuk-link nav-button">Delete</button>
+      </td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell" style="width: 10px"><div class="checkbox"></div></td>
+      <td scope="row" class="govuk-table__cell"><a href="meeting" class="govuk-link">Quarterly planning meeting</a></td>
+      <td class="govuk-table__cell govuk-body-s">27 Aug, 14:28</td>
+      <td class="govuk-table__cell govuk-body-s">In 22 days</td>
+      <td class="govuk-table__cell">   
+            <button class="govuk-button govuk-button--inverse govuk-link nav-button">Rename</button>
+            <button class="govuk-button govuk-button--inverse govuk-link nav-button">Delete</button>
+      </td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell" style="width: 10px"><div class="checkbox"></div></td>
+      <td scope="row" class="govuk-table__cell"><a href="meeting" class="govuk-link">Quarterly planning meeting</a></td>
+      <td class="govuk-table__cell govuk-body-s">16 Aug, 14:28</td>
+      <td class="govuk-table__cell govuk-body-s">In 11 days</td>
+      <td class="govuk-table__cell">   
+            <button class="govuk-button govuk-button--inverse govuk-link nav-button">Rename</button>
+            <button class="govuk-button govuk-button--inverse govuk-link nav-button">Delete</button>
+      </td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell" style="width: 10px"><div class="checkbox"></div></td>
+      <td scope="row" class="govuk-table__cell"><a href="meeting" class="govuk-link">Quarterly planning meeting</a></td>
+      <td class="govuk-table__cell govuk-body-s">5 Aug, 14:28</td>
+      <td class="govuk-table__cell govuk-body-s" style="color: #ca3535">In 5 days</td>
+      <td class="govuk-table__cell">   
+            <button class="govuk-button govuk-button--inverse govuk-link nav-button">Rename</button>
+            <button class="govuk-button govuk-button--inverse govuk-link nav-button">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 {% endblock %}
